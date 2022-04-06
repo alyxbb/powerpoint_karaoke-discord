@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkpoint</title>
+</head>
+<body>
+<h1>Checkpoint</h1>
+<h4>stop! please check the following before continuing</h4>
+<ul>
+    <li>you are currently streaming</li>
+    <li>you are actually planning on presenting, if not use /test_ppt</li>
+    <li id="username"></li>
+    <li><strike>you have paid alyx £500</strike></li>
+</ul>
+<h4>if you are ready to continue, please click the button below</h4>
+<a href="#" id="continue">continue</a>
+<script>
+    params = document.location.search;
+    params = params.substring(1);
+    params = params.split("&");
+    formattedparams = {};
+    for (i = 0; i < params.length; i++) {
+        param = params[i].split("=");
+        formattedparams[param[0]] = param[1];
+    }
+    document.getElementById("username").innerHTML = "your discord username is " + formattedparams["username"];
+    document.getElementById("continue").href = formattedparams["link"]
+</script>
+</body>
+</html>
